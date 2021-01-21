@@ -1,0 +1,41 @@
+// Sass Data Types
+
+/* Strings */
+$a: harry; // Unquoted string
+$b: 'harry'; // Single Quoted string
+$c: "harry"; // Double Quoted string
+
+/* Numbers */
+$d: 1; // Integer
+$e: 1.5; // Float
+$f: 1rem; // rem Values (CSS units)
+$g: 2em; // em Values (CSS units)
+$h: 5px; // px Values (CSS units)
+
+/* Booleans */
+$i: true; // True
+$j: false; // False
+
+/* Null */
+$k: null; // Null
+
+/* Lists */
+$l: 'Raleway','Open Sans','Lato'; // comma separated elements
+$m: 3px 4px 8px; // space separated elements
+$n: 'Roboto' 'Ubuntu', 15px 1.3em; // multi-list with two lists
+
+/* Maps */
+$o: (
+'font-family': 'Open Sans',
+'font-size': 2rem,
+'color': blue
+); // We will talk about maps later on. 
+
+/* Colors */
+$p: DarkBlue; // Color Name
+$q: #00008B; // Hex
+$r: rgba(255, 0, 0, 0.5); // RGB/RGBA
+$s: hsl(10, 30%, 50%); // HSL/HSLA
+
+/* Function References */
+$t: darken($q); // We will talk about functions later on.

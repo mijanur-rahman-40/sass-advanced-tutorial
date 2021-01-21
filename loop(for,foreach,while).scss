@@ -1,0 +1,147 @@
+// Loops in Sass
+
+// For loop
+
+// Maximum number of cells to display per direction
+$max: 7;
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+
+    > div {
+        height: 25px;
+        background: #ccc;
+        border: 1px solid #aaa;
+    }
+}
+
+// Looping through the code
+@for $i from 1 through $max {
+    $equ: 100% / $i;
+    .grid.block-#{ $i } > div {
+        flex: 0 0 $equ;
+    }
+}
+
+// output
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+.grid > div {
+    height: 25px;
+    background: #ccc;
+    border: 1px solid #aaa;
+}
+
+.grid.block-1 > div {
+    flex: 0 0 100%;
+}
+
+.grid.block-2 > div {
+    flex: 0 0 50%;
+}
+
+.grid.block-3 > div {
+    flex: 0 0 33.33333%;
+}
+
+.grid.block-4 > div {
+    flex: 0 0 25%;
+}
+
+.grid.block-5 > div {
+    flex: 0 0 20%;
+}
+
+.grid.block-6 > div {
+    flex: 0 0 16.66667%;
+}
+
+.grid.block-7 > div {
+    flex: 0 0 14.28571%;
+}
+
+// Each loop
+
+$button-palette: (
+    primary: #1779ba,
+    secondary: #767676,
+    success: #3adb76,
+    warning: #ffae00,
+    alert: #cc4b37,
+);
+
+@each $name, $color in $button-palette {
+    .#{$name} {
+        background-color: $color;
+        &:hover,
+        &:focus {
+            background-color: darken($color, 20%);
+        }
+    }
+}
+
+// output
+
+.primary {
+    background-color: #1779ba;
+}
+.primary:hover,
+.primary:focus {
+    background-color: #0c3e5f;
+}
+
+.secondary {
+    background-color: #767676;
+}
+.secondary:hover,
+.secondary:focus {
+    background-color: #434343;
+}
+
+.success {
+    background-color: #3adb76;
+}
+.success:hover,
+.success:focus {
+    background-color: #1b9448;
+}
+
+.warning {
+    background-color: #ffae00;
+}
+.warning:hover,
+.warning:focus {
+    background-color: #996800;
+}
+
+.alert {
+    background-color: #cc4b37;
+}
+.alert:hover,
+.alert:focus {
+    background-color: #7d2c20;
+}
+
+// While Loop
+
+$headerSizes: 48px 40px 31px 25px 20px 16px;
+$index: 1;
+
+@while $index <= 6 {
+    h#{$index},
+    .h#{$index} {
+        font-size: nth($headerSizes, $index);
+    }
+    $index: $index + 1;
+}
+
+// output
+h1, .h1 { font-size: 48px; }
+h2, .h2 { font-size: 40px; }
+h3, .h3 { font-size: 31px; }
+h4, .h4 { font-size: 25px; }
+h5, .h5 { font-size: 20px; }
+h6, .h6 { font-size: 16px; }

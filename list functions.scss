@@ -1,0 +1,56 @@
+$list1: 200px;
+$list2: 1px 2px 3px black;
+$list3: Helvetica, Arial, sans-serif;
+
+$zip1: 1px 2px 3px 4px;
+$zip2: 4em 3em 2em 1em;
+$zip3: black green blue red;
+
+$nested-list: 1px 2px 3px green, 6px 7px 8px blue, 3px 2px 1px yellow;
+// List Functions
+
+html {
+  // Returns the length of a list.
+  // => length($list)
+  width: length($list2);
+
+  // Returns a specific item in a list.
+  // => nth($list, $n)
+  box-shadow: nth($nested-list, 2);
+
+  // Replaces the nth item in a list.
+  // => set-nth($list, $n, $value)
+  text-shadow: set-nth($nested-list, 3, 0em 1em 0.5em orange);
+
+  // Returns the separator of a list.
+  // => list-separator($list)
+  height: list-separator($list3);
+
+  // Joins together two lists into one.
+  // => join($list1, $list2, $separator:auto, $bracketed:auto)
+  line-height: join($nested-list, $list3, comma);
+
+  // Appends a single value onto the end of a list.
+  // => append($list, $val, $separator:auto)
+  font: append($zip3, gray);
+
+  // Returns the position of a value within a list.
+  // => index($list, $value)
+  font-size: index($nested-list, 3px 2px 1px yellow);
+
+  // Combines several lists into a single multidimensional list.
+  // => zip($lists...)
+  background: zip($zip1, $zip2, $zip3);
+}
+
+// output
+html {
+  width: 1;
+  box-shadow: 6px 7px 8px blue;
+  text-shadow: 1px 2px 3px green, 6px 7px 8px blue, 0em 1em 0.5em orange;
+  height: comma;
+  line-height: 1px 2px 3px green, 6px 7px 8px blue, 3px 2px 1px yellow, Helvetica, Arial, sans-serif;
+  font: black green blue red gray;
+  font-size: 3;
+  background: 1px 4em black, 2px 3em green, 3px 2em blue, 4px 1em red;
+}

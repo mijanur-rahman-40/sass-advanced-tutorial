@@ -1,0 +1,29 @@
+// @If control directive
+
+@if ($prop == margin) {
+  margin: $spacer * $global-margin;
+} @else if ($prop == padding) {
+  padding: $spacer * $global-padding;
+} @else {
+  @warn 'No Property Specified';
+}
+
+
+// if() function *
+// The built-in if() function allows you to branch on a condition and returns only one of two possible outcomes. It can be used in any script context. The if function only evaluates the argument corresponding to the one that it will return -- this allows you to refer to variables that may not be defined or to have calculations that would otherwise cause an error (E.g. divide by zero). 
+
+@mixin item-styles($condition) {
+  // if true then green, else purple
+  $color: if($condition, green, purple);
+  .items li {
+    background-color: $color;
+  }
+}
+
+// Show for true condition aka green
+@include item-styles(true);
+
+@media screen and (min-width: 800px) {
+  // Show for false condition aka purple
+  @include item-styles(false);
+}

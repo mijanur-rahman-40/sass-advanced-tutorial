@@ -1,0 +1,41 @@
+// src/_corners.scss
+$radius: 3px;
+
+@mixin rounded {
+  border-radius: $radius;
+}
+
+// style.scss
+@use "src/corners";
+
+.button {
+  @include corners.rounded;
+  padding: 5px + corners.$radius;
+}
+
+// or
+@use "src/corners" as c;
+
+.button {
+  @include c.rounded;
+  padding: 5px + c.$radius;
+}
+
+// or
+@use "src/corners" as *;
+
+.button {
+  @include rounded;
+  padding: 5px + $radius;
+}
+
+
+// Private number
+use "src/corners";
+
+.button {
+  @include corners.rounded;
+
+  // This is an error! $-radius isn't visible outside of `_corners.scss`.
+  padding: 5px + corners.$-radius;
+}

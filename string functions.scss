@@ -1,0 +1,48 @@
+// String function
+
+// Please be careful that Sass strings are NOT zero-based arrays. 
+
+$a: unquote("hello world"); // Removes the quotes, if any, around a string
+$b: quote(hello); // Adds quotes to an unquoted string
+$c: quote("hello harry"); // Returns a quoted string unmodified
+$d: str-length("hello world"); // Returns the number of characters in a string
+$e: str-index("Hello", "H"); // Returns the index of the first occurrence of $substring in $string.
+$f: str-index("hello", "H"); // If there is no such occurrence, returns null.
+$g: to-upper-case("hello"); // Converts a string to upper case.
+$h: to-lower-case("Hello"); // Converts a string to lower case.
+
+// Inserts the string specified as $insert at the specified index position inside string
+// str_insert($string, $insert, $index)
+$insert: str-insert(" harry", "hello", 0);
+
+// Extracts a substring from $string.
+// The substring will begin at index $start-at and optionally ending at position $end-at.
+// str_slice($string, $start-at, $end-at:-1)
+$slice: str-slice("hello, world", 8);
+$slice-end: str-slice("hello, world", 8, 9);
+
+/* Just for demo */
+.a { content: $a; }
+.b { content: $b; }
+.c { content: $c; }
+.d { content: $d; }
+.e { content: $e; }
+.f { content: $f; }
+.g { content: $g; }
+.h { content: $h; }
+.insert { content: $insert; }
+.slice { content: $slice; }
+.slice-end { content: $slice-end; }
+
+// output
+
+.a { content: hello world; }
+.b { content: "hello"; }
+.c { content: "hello harry"; }
+.d { content: 11; }
+.e { content: 1; }
+.g { content: "HELLO"; }
+.h { content: "hello"; }
+.insert { content: "hello harry"; }
+.slice { content: "world"; }
+.slice-end { content: "wo"; }

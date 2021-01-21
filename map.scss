@@ -1,0 +1,24 @@
+// Sass Maps
+
+$map1 : (
+  'Key': 'Value',
+  'AnotherKey': 3rem
+); // Key Value Pair
+
+$map2 : (
+  'key1' : 'value1',
+  'key2' : 'value2',
+  'key3' : 'value3'
+); // Another Key value Pair
+
+$map3 : (
+  'KeyName': 'You can\'t escape me',
+  'String':  string,
+  'Number':  234,
+  'List':  ( width 2s, height 2s, transform 2s ),
+  'NestedMap':  (
+    'NestedKey':  'I am deeply nested',
+    'url':  './images/harry.svg',
+    'Width':  300px
+  ); // Nested Map
+); // Key value pair with lists and map's nested in it

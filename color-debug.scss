@@ -1,0 +1,16 @@
+
+// Alternatively, you can Debug the color too for different purposes. Stop! Big Word Alert, for now, think of @debug as console.log of javascript. We will talk about it later on in Part 2. In this below example, we are debugging the red, green, and blue component of the variable $color.
+
+$color: #0EA29D;
+
+/* Debugging a color */
+$red: red($color); // Gets the red component of a color.
+$green: green($color); // Gets the green component of a color.
+$blue: blue($color); // Gets the blue component of a color.
+
+%debug {
+  @debug 'Red: #{$red} | Green: #{$green} | Blue: #{$blue}';
+}
+
+// Console output
+/* DEBUG: Red: 14 | Green: 162 | Blue: 157

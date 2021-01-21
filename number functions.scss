@@ -1,0 +1,61 @@
+// Number functions
+
+// Math Variables
+$a : 16px; $b : 32px; $c : 4.5px; $d : -12px;
+
+// Styling
+.button { width: 5 + 10 + $a - ($b * 2) / $c % $d; } // 40.7777777778px;
+
+
+// calculations more useful in Sass 
+
+$a : 16px;
+$b : 32px;
+$c : 4.5px;
+$d : -12px;
+
+// Rounds a number to the nearest whole number.
+// => round($number)
+.a { width: round( 5 + 10 + $a - $b * 2 / $c % $d ); }
+
+// Rounds a number down to the previous whole number.
+// => floor($number)
+.b { width: floor( 5 + 10 + $a - $b * 2 / $c ); }
+
+// Rounds a number up to the next whole number.
+// => ceil($number)
+.c { width: ceil( 5 + 10 + $a - $b * 2 / $c - .4 ); }
+
+// Converts a unitless number to a percentage.
+// => percentage($number)
+.d { width: percentage( 4.5 ); }
+
+// Returns the absolute value of a number.
+// => abs($number)
+.e { width: abs( $d ); }
+
+// Finds the minimum of several numbers.
+// This function takes any number of arguments.
+// min($numbers...)
+.f { width: min( 10, 20, 50, 50.1, $a ); }
+
+// Finds the maximum of several numbers.
+// This function takes any number of arguments.
+// max($numbers...)
+.g { width: max( 10, 20, 50, 50.1, $a ); }
+
+// Return a decimal between 0 and 1, inclusive of 0 but not 1.
+// or, if limit specified, then returns an integer between 1 and $limit
+// => random | random($limit)
+.h { width: random( 100 ); }
+
+//output
+.a { width: 41px; } /* round( 5 + 10 + $a - $b * 2 / $c % $d ); */
+.b { width: 16px; } /* floor( 5 + 10 + $a - $b * 2 / $c ); */
+.c { width: 17px; } /* ceil( 5 + 10 + $a - $b * 2 / $c - .4 ); */
+.d { width: 450%; } /* percentage( 4.5 ); */
+.e { width: 12px; } /* abs( $d ); */
+.f { width: 10; } /* min( 10, 20, 50, 50.1, $a ); */
+.g { width: 50.1; } /* max( 10, 20, 50, 50.1, $a ); */
+.h { width: 95; } /* random( 100 ); */
+
